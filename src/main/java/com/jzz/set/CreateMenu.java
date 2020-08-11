@@ -14,11 +14,11 @@ public class CreateMenu {
     public static void main(String[] args) {
         Button button = new Button();
 
-        button.getButton().add(new ClickButton("一级点击","1"));
-        button.getButton().add(new ViewButton("一级跳转","http://www.baidu.com"));
+        button.getButton().add(new ClickButton("获取最新","1"));
+        button.getButton().add(new ViewButton("百度","http://www.baidu.com"));
 
-        SubButton sb = new SubButton("有子菜单");
-        sb.getSub_button().add(new PhotoOrAlbumButton("传图","31"));
+        SubButton sb = new SubButton("其他活动");
+        sb.getSub_button().add(new PhotoOrAlbumButton("图片识字","31"));
         sb.getSub_button().add(new ClickButton("点击","32"));
         sb.getSub_button().add(new ViewButton("网易新闻","http://news.163.com"));
         button.getButton().add(sb);

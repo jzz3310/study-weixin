@@ -37,6 +37,8 @@ public class TestController {
         String nonce = request.getParameter("nonce");// 随机数
         String echostr = request.getParameter("echostr");//随机字符串
 
+        System.out.println("489564984");
+
         if(wxService.check(timestamp,nonce,signature)){
             PrintWriter out = response.getWriter();
             out.println(echostr);

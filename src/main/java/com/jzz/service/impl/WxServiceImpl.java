@@ -131,6 +131,7 @@ public class WxServiceImpl implements WxService {
     }
 
     private BaseMessage dealEvent(Map<String, String> map) {
+        System.out.println("点击按钮");
         String event = map.get("Event");
         switch (event) {
             case "CLICK":
