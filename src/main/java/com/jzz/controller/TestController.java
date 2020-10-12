@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.HandlerAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +28,7 @@ public class TestController {
 
     @GetMapping("wx")
     public String test(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         // 将请求、响应的编码均设置为UTF-8（防止中文乱码）
         request.setCharacterEncoding("UTF-8");  //微信服务器POST消息时用的是UTF-8编码，在接收时也要用同样的编码，否则中文会乱码；
         response.setCharacterEncoding("UTF-8"); //在响应消息（回复消息给用户）时，也将编码方式设置为UTF-8，原理同上；
@@ -36,8 +38,6 @@ public class TestController {
         String timestamp = request.getParameter("timestamp");// 时间戳
         String nonce = request.getParameter("nonce");// 随机数
         String echostr = request.getParameter("echostr");//随机字符串
-
-        System.out.println("489564984");
 
         if(wxService.check(timestamp,nonce,signature)){
             PrintWriter out = response.getWriter();
@@ -59,5 +59,11 @@ public class TestController {
         PrintWriter out = response.getWriter();
         out.println(resxml);
         StreamClose.close(out);
+    }
+
+    public static void main(String[] args) {
+        String s = "3.4";
+        int ceil = (int)Math.ceil(new Double(s));
+        System.out.println(ceil);
     }
 }
